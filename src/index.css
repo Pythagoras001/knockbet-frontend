@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
+
+@theme {
+  --font-headline: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --color-surface: #0e0e0e;
+  --color-surface-low: #131313;
+  --color-surface-high: #20201f;
+  --color-surface-highest: #262626;
+  --color-primary: #ff8f6f;
+  --color-primary-dim: #ff7851;
+}
+
+@utility editorial-outline {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.3);
+  color: transparent;
+}
+
+@utility editorial-outline-primary {
+  -webkit-text-stroke: 1.5px var(--color-primary);
+  color: transparent;
+}
+
+@utility glass-panel {
+  background: rgba(14, 14, 14, 0.7);
+  backdrop-filter: blur(12px);
+}
