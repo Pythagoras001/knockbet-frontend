@@ -5,7 +5,7 @@ import {ResultadoPost} from "@/src/types/POST/ResultadoPost.ts";
 import {Resultado} from "@/src/types/GET/Resultado.ts";
 import {EditEventPost} from "@/src/types/POST/EditEventPost.ts";
 
-const FIGHT_BASE = "/fight"; 
+const FIGHT_BASE = "/fight";
 
 export const getEventos = async (): Promise<Evento[]> => {
   const response = await api.get<Evento[]>(FIGHT_BASE);
@@ -17,9 +17,20 @@ export const getEventosLibres = async (): Promise<Evento[]> => {
   return response.data;
 };
 
+export const getResultados = async (): Promise<Resultado[]> => {
+  // GET /api/fight/results
+  const response = await api.get<Resultado[]>(`${FIGHT_BASE}/results`);
+  return response.data;
+};
+
 export const createEvent = async (evento: EventoPost): Promise<void> => {
   // POST /api/fight
   await api.post(FIGHT_BASE, evento);
+};
+
+export const startEvent = async (fightId: string): Promise<void> => {
+  // POST /api/fight/{fightId}/start
+  await api.post(`${FIGHT_BASE}/${fightId}/start`);
 };
 
 export const finishEvent = async (resultado: ResultadoPost): Promise<void> => {
