@@ -5,7 +5,7 @@ import {ResultadoPost} from "@/src/types/POST/ResultadoPost.ts";
 import {Resultado} from "@/src/types/GET/Resultado.ts";
 import {EditEventPost} from "@/src/types/POST/EditEventPost.ts";
 
-const FIGHT_BASE = "/fight";
+const FIGHT_BASE = "/fight"; // backend: /api/fight (baseURL ya incluye /api)
 
 export const getEventos = async (): Promise<Evento[]> => {
   const response = await api.get<Evento[]>(FIGHT_BASE);

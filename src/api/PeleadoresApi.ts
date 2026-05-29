@@ -3,7 +3,7 @@ import {Peleador} from "@/src/types/GET/Peleador.ts";
 import {PeleadorPost} from "@/src/types/POST/PeleadorPost.ts";
 import {EditPeleadorPost} from "@/src/types/POST/EditPeleadorPost.ts";
 
-const FIGHTERS_BASE = "/fighters";
+const FIGHTERS_BASE = "/fighters"; // backend: /api/fighters (baseURL ya incluye /api)
 
 export const getPeleadores = async (): Promise<Peleador[]> => {
   const response = await api.get<Peleador[]>(FIGHTERS_BASE);
