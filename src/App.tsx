@@ -19,8 +19,6 @@ import {
   Globe,
   Activity,
   Zap,
-  HelpCircle,
-  LogOut,
   ChevronLeft,
   ChevronRight,
   Stethoscope,
@@ -49,66 +47,6 @@ import { Evento } from "@/src/types/GET/Evento.ts";
 import { Apuesta } from "@/src/types/GET/Apuesta.ts";
 import { Resultado } from "@/src/types/GET/Resultado.ts";
 
-
-const fighters = [
-  // ... existing fighters data remains the same
-  {
-    id: 1,
-    name: "Khabib Nurmagomedov",
-    nickname: "THE EAGLE",
-    weightClass: "Lightweight",
-    record: "29 - 0 - 0",
-    nationality: "Russia",
-    status: "Active",
-    image: "https://picsum.photos/seed/khabib/200/200",
-    statusColor: "bg-green-500",
-    badgeColor: "text-green-400 bg-green-500/10 border-green-500/20",
-    height: "5' 10\"",
-    reach: "70.0\""
-  },
-  {
-    id: 2,
-    name: "Conor McGregor",
-    nickname: "THE NOTORIOUS",
-    weightClass: "Lightweight / Welterweight",
-    record: "22 - 6 - 0",
-    nationality: "Ireland",
-    status: "In Camp",
-    image: "https://picsum.photos/seed/conor/200/200",
-    statusColor: "bg-orange-500",
-    badgeColor: "text-primary bg-primary/10 border-primary/20",
-    height: "5' 9\"",
-    reach: "74.0\""
-  },
-  {
-    id: 3,
-    name: "Dustin Poirier",
-    nickname: "THE DIAMOND",
-    weightClass: "Lightweight",
-    record: "30 - 8 - 0",
-    nationality: "USA",
-    status: "Injured",
-    image: "https://picsum.photos/seed/dustin/200/200",
-    statusColor: "bg-red-500",
-    badgeColor: "text-red-400 bg-red-500/10 border-red-500/20",
-    height: "5' 9\"",
-    reach: "72.0\""
-  },
-  {
-    id: 4,
-    name: "Jon Jones",
-    nickname: "BONES",
-    weightClass: "Heavyweight",
-    record: "27 - 1 - 0",
-    nationality: "USA",
-    status: "Active",
-    image: "https://picsum.photos/seed/jon/200/200",
-    statusColor: "bg-green-500",
-    badgeColor: "text-green-400 bg-green-500/10 border-green-500/20",
-    height: "6' 4\"",
-    reach: "84.0\""
-  }
-];
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('All');
@@ -203,14 +141,6 @@ export default function App() {
             mobile={isMobileMenuOpen}
           />
           <SidebarLink
-            icon={<Zap size={20} />}
-            label="Bets"
-            active={currentView === 'bets' || currentView === 'place-bet'}
-            onClick={() => { setCurrentView('bets'); setIsMobileMenuOpen(false); }}
-            collapsed={isSidebarCollapsed}
-            mobile={isMobileMenuOpen}
-          />
-          <SidebarLink
             icon={<CreditCard size={20} />}
             label="Finance"
             active={currentView === 'finance'}
@@ -221,16 +151,6 @@ export default function App() {
         </nav>
 
         <div className="mt-auto border-t border-white/5 pt-6 space-y-4">
-          <button className={`flex items-center justify-center gap-2 rounded border border-primary/20 bg-primary/5 py-3 text-[10px] font-black uppercase tracking-widest text-primary hover:bg-primary/10 transition-all ${(isSidebarCollapsed && !isMobileMenuOpen) ? 'lg:w-full px-0' : 'w-full px-4'}`}>
-            <Plus size={16} strokeWidth={3} />
-            {(!isSidebarCollapsed || isMobileMenuOpen) && <span>Emparejamiento Rapido</span>}
-          </button>
-
-          <div className="space-y-1">
-            <SidebarLink icon={<HelpCircle size={20} />} label="Support" collapsed={isSidebarCollapsed} mobile={isMobileMenuOpen} />
-            <SidebarLink icon={<LogOut size={20} />} label="Log Out" collapsed={isSidebarCollapsed} mobile={isMobileMenuOpen} />
-          </div>
-
           <button
             onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
             className="hidden lg:flex w-full items-center justify-center rounded border border-white/5 bg-surface-high py-2 text-zinc-500 hover:text-white transition-all mt-4"
