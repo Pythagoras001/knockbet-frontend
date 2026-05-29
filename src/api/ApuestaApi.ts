@@ -15,6 +15,10 @@ export const getUserApuestas = async (): Promise<UserApuesta[]> => {
   return response.data;
 };
 
+export const conectBet = async (fightId: string): Promise<void> => {
+  await api.post(`${BET_BASE}/${fightId}`);
+};
+
 export const createUserApuesta = async (userApuestaPet: UserApuestaPost): Promise<void> => {
   await api.post(`${BET_BASE}/stake`, userApuestaPet);
 };

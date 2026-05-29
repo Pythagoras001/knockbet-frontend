@@ -141,6 +141,14 @@ export default function App() {
             mobile={isMobileMenuOpen}
           />
           <SidebarLink
+            icon={<Zap size={20} />}
+            label="Bets"
+            active={currentView === 'bets' || currentView === 'place-bet'}
+            onClick={() => { setCurrentView('bets'); setIsMobileMenuOpen(false); }}
+            collapsed={isSidebarCollapsed}
+            mobile={isMobileMenuOpen}
+          />
+          <SidebarLink
             icon={<CreditCard size={20} />}
             label="Finance"
             active={currentView === 'finance'}
