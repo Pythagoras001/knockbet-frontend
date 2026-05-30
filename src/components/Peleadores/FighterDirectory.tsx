@@ -44,16 +44,16 @@ export default function FighterDirectory({activeTab, onTabChange, onRegisterClic
   const [filterStatus, setFilterStatus] = useState('ALL');
   const [searchQuery, setSearchQuery] = useState('');
 
+  const totalPeleadores = peleadores?.length ?? 0;
   const suspendidos = peleadores?.filter(p => p.estadoActividad).length ?? 0;
-  const porcentaje =
-    (suspendidos / peleadores.length) * 100;
+  const porcentaje = totalPeleadores > 0 ? (suspendidos / totalPeleadores) * 100 : 0;
 
   const handleFighterClick = (fighter: Peleador) => {
     setSelectedFighter(fighter);
     setIsModalOpen(true);
   };
 
-  const filteredFighters = peleadores.filter(f => {
+  const filteredFighters = (peleadores ?? []).filter(f => {
     // Search filter
     const matchesSearch = f.nombre.toLowerCase().includes(searchQuery.toLowerCase());
 
@@ -400,7 +400,7 @@ export default function FighterDirectory({activeTab, onTabChange, onRegisterClic
         
         {/* Pagination */}
         <div className="flex flex-col sm:flex-row items-center justify-between border-t border-white/5 bg-surface-high/30 px-6 py-4 gap-4">
-          <p className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-zinc-500">Viendo <span className="text-white">{filteredFighters.length}</span> de {peleadores.length} Peleadores</p>
+          <p className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-zinc-500">Viendo <span className="text-white">{filteredFighters.length}</span> de {totalPeleadores} Peleadores</p>
           <div className="flex gap-2 w-full sm:w-auto">
             <PaginationButton icon={<ChevronLeft size={16} />} label="Previous" />
             <PaginationButton icon={<ChevronRight size={16} />} label="Next" primary />
@@ -426,13 +426,13 @@ export default function FighterDirectory({activeTab, onTabChange, onRegisterClic
         />
         <StatCard 
           label="DISPONIBILIDAD OPERATIVA"
-          value={`${peleadores.filter(p => p.estadoActividad).length} Peleadores`}
+          value={`${(peleadores ?? []).filter(p => p.estadoActividad).length} Peleadores`}
           icon={<Users size={24} />} 
           subText="Preparados para proximos Eventos"
         />
         <StatCard 
           label="En Recuperacion"
-          value={`${peleadores.filter(p => !p.estadoActividad).length} Peleadores`}
+          value={`${(peleadores ?? []).filter(p => !p.estadoActividad).length} Peleadores`}
           icon={<Stethoscope size={24} />} 
           highlightColor="text-red-400"
           className="md:col-span-2 lg:col-span-1"

@@ -217,7 +217,6 @@ export default function LiveBookView({ onBack, apuestaActual }: LiveBookViewProp
                 <th className="px-8 py-5 font-headline font-black text-[10px] uppercase tracking-[0.2em] text-zinc-500 text-right">Monto</th>
                 <th className="px-8 py-5 font-headline font-black text-[10px] uppercase tracking-[0.2em] text-zinc-500 text-right">Cuota</th>
                 <th className="px-8 py-5 font-headline font-black text-[10px] uppercase tracking-[0.2em] text-zinc-500 text-right">Pago Potencial</th>
-                <th className="px-8 py-5 font-headline font-black text-[10px] uppercase tracking-[0.2em] text-zinc-500 text-right">Tiempo</th>
               </tr>
               </thead>
               <tbody className="divide-y divide-white/5">
@@ -250,9 +249,6 @@ export default function LiveBookView({ onBack, apuestaActual }: LiveBookViewProp
                   <td className="px-8 py-6 text-right font-headline font-black text-base italic tracking-tighter text-white tabular-nums">${wager.valorApostado.toLocaleString()}</td>
                   <td className="px-8 py-6 text-right font-headline font-black text-sm text-zinc-500 italic tracking-tighter">{wager.rendimientoGananciaAsociada}</td>
                   <td className="px-8 py-6 text-right font-headline font-black text-lg text-primary italic tracking-tighter tabular-nums">${wager.totalGananciaPosible.toLocaleString()}</td>
-                  <td className="px-8 py-6 text-right">
-                    <p className="text-xs font-black text-zinc-400 italic uppercase">Ayer</p>
-                  </td>
                 </tr>
               ))}
               </tbody>
